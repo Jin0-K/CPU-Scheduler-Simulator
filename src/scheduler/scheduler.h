@@ -1,3 +1,6 @@
+#ifndef SCHEDULER_H
+#define SCHEDULER_H
+
 #include <queue>
 #include <vector>
 #include "../cpu/cpu.h"
@@ -23,3 +26,5 @@ public:
     void addProcess(const Process& process);
     void run();
 };
+
+#endif

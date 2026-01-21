@@ -1,8 +1,12 @@
+#ifndef CPU_H
+#define CPU_H
+
 #include "../process/process.h"
 
 class CPU 
 {
 public:
-    CPU();
     int run(Process& process, int time_quantum);
 };
+
+#endif

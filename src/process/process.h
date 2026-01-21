@@ -1,3 +1,6 @@
+#ifndef PROCESS_H
+#define PROCESS_H
+
 enum class ProcessState {
     READY, 
     RUNNING, 
@@ -20,3 +23,5 @@ public:
 
     int execute(int runtime);
 };
+
+#endif
