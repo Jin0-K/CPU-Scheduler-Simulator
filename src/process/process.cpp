@@ -25,7 +25,8 @@ int Process::execute(int runtime) {
     // Set process state RUNNING
     state = ProcessState::RUNNING;
     // Apply time executed
-    time_remaining -= std::min(runtime, time_remaining);
+    int time_executed = std::min(runtime, time_remaining);
+    time_remaining -= time_executed;
     // Check whether the process is finished
     if (time_remaining == 0) {
         state = ProcessState::DONE;
@@ -33,5 +34,5 @@ int Process::execute(int runtime) {
         state = ProcessState::READY;
     }
 
-    return time_remaining;
+    return time_executed;
 }
