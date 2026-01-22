@@ -1,3 +1,4 @@
+#include <iostream>
 #include <algorithm>
 #include "scheduler.h"
 #include "../process/process.h"
@@ -42,11 +43,15 @@ void Scheduler::addProcess(const Process& process) {
 
 void Scheduler::run() {
     sortProcesses();
+    enqueueProcess();
     while (process_index < processes.size() || !ready_queue.empty())
     {
         enqueueProcess();
 
         if (ready_queue.empty()) {
+            std::cout   << "[ " << current_time
+                        << " - " << current_time + 1
+                        << " ] CPU IDLE\n";
             current_time++;
             continue;
         }
@@ -55,9 +60,14 @@ void Scheduler::run() {
         ready_queue.pop();
         int time_executed = cpu.run(*processInExecute, getTimeQuantum());
 
+        // Print the Schedule
+        std::cout << "[ " << current_time << " - ";
+
         current_time += time_executed;
         enqueueProcess(); // For the processes arrived while another is being executed
         
+        std::cout << current_time << " ] Process " << processInExecute->getPid() << " RUNNING" << std::endl;
+
         if (processInExecute->getState() == ProcessState::READY) {
             ready_queue.push(processInExecute);
         }
