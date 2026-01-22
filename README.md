@@ -26,18 +26,18 @@ C++로 구현한 **Round Robin(RR) CPU 스케줄러 시뮬레이터**입니다.
 ---
 
 ## Project Structure
-src/
-├─ main.cpp
-├─ processes.txt
-├─ process/
-│ ├─ process.h
-│ └─ process.cpp
-├─ cpu/
-│ ├─ cpu.h
-│ └─ cpu.cpp
-└─ scheduler/
-├─ scheduler.h
-└─ scheduler.cpp
+src/  
+├─ main.cpp  
+├─ processes.txt  
+├─ process/  
+│ ├─ process.h  
+│ └─ process.cpp  
+├─ cpu/  
+│ ├─ cpu.h  
+│ └─ cpu.cpp  
+└─ scheduler/  
+├─ scheduler.h  
+└─ scheduler.cpp  
 
 
 ---
